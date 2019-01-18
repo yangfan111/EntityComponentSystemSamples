@@ -5,12 +5,12 @@ The Entity Component System is built on a set of principles. These principles pr
 ## Performance by default
 
 We want to make it simple to create efficient machine code for all platforms.
-
+********
 We measure ourselves against the performance that can be achieved in C++ with handwritten highly optimized [simd](https://en.wikipedia.org/wiki/SIMD) intrinsics.
 
-We are using a combination of compiler technology (Burst), containers (Unity.Collections), data layout of components (ECS) to make it easy to write efficient code by default.
+**We are using a combination of compiler technology (Burst), **containers (Unity.Collections), data layout of components (ECS) to make it easy to write efficient code by default.****
 
-* Data layout & iteration - The Entity Component System gurantees linear data layout when iterating entities in chunks by default. This is a critical part of the performance gains provided by the Entity Component System.
+* Data layout & iteration - **The Entity Component System gurantees linear data layout when iterating entities in chunks by default**. This is a critical part of the performance gains provided by the Entity Component System.默认情况下，在以块为单位迭代实体时，实体组件系统保证线性数据布局。 这是实体组件系统提供的性能提升的关键部分。
 * The C# job system lets you write multithreaded code in a simple way. It is also safe. The C# Job Debugger detects any race conditions.
 * Burst is our compiler specifically for C# jobs. C# job code follows certain patterns that we can use to produce more efficient machine code. Code is compiled & optimized for each target platforms taking advantage of SIMD instructions.
 
@@ -35,7 +35,7 @@ Another example, lets imagine you want to make a heavily moddable game.
 
 If our import pipeline is implemented as a set of __ComponentSystems__. And we have some FBX import pipeline code that is by default used in the asset pipeline to import and postprocess an FBX file. (Mesh is baked out and FBX import code used in the editor.)
 
-Then it would be easy to configure the Package Manager that the same FBX import and postprocessing code could be used in a deployed game for the purposes of modding.
+**Then it would be easy to configure the Package Manager that the same FBX import and postprocessing code could be used in a deployed game for the purposes of modding.**
 
 We believe this will, at the foundation level, make Unity significantly more flexible than it is today.
 
@@ -57,7 +57,7 @@ Our build pipeline must be [deterministic](https://en.wikipedia.org/wiki/Determi
 
 You should always get the same results with the same inputs, no matter what device is being used. This is important for networking, replay features and even advanced debugging tools.
 
-To do this we will leverage our Burst compiler to produce exact floating point math between different platforms. Imagine a linux server & iOS device running the same floating point math code. This is useful for many scenarios particularly for connected games, but also debugging, replay etc. 
+**To do this we will leverage our Burst compiler to produce exact floating point math between different platforms**. Imagine a linux server & iOS device running the same floating point math code. This is useful for many scenarios particularly for connected games, but also debugging, replay etc. 
 
 > Note: Floating point math discrepancies is a problem that Unity decided to tackle head on. This issue has been known about for some time, but so far there has not been a need great enough to encourage people to solve it. For some insight into this problem, including some of the workarounds needed to avoid solving it, consider reading [Floating-Point Determinism by Bruce Dawson](https://randomascii.wordpress.com/2013/07/16/floating-point-determinism/).
 
@@ -67,7 +67,7 @@ Unity is a sandbox, safe and simple.
 
 We provide great error messages when API's are used incorrectly, we never put ourselves in a position where incorrect usage results in a crash and that is by design (as opposed to a bug we can quickly fix).
 
-A good example of sandbox behaviour is that our C# job system guarantees that none of your C# job code has race conditions. We deterministically check all possible race conditions through a combination of static code analysis & runtime checks. We give you well written error messages about any race conditions right away. So you can trust that your code works and feel safe that even developers who write multithreaded game code for the first time will do it right.
+A good example of sandbox behaviour is that our C# job system guarantees that none of your C# job code has race conditions. We deterministically check all possible race conditions through a combination of static code analysis & runtime checks.**We give you well written error messages about any race conditions right away.** So you can trust that your code works and feel safe that even developers who write multithreaded game code for the first time will do it right.
 
 ## Tiny
 
@@ -91,15 +91,15 @@ We are aware that we are proposing a rather large change in how to write code. F
 
 We believe that ultimately the only thing that convinces a game developer is trying it and seeing the result with your own eyes, on your own game. 
 
-Thus it is important that applying the ECS approach on an existing project should be easy and quick to do. Our goal is that within 30 minutes a user can, in a large project, change some code from MonoBehaviour.Update to ComponentSystem and have a successful experience optimizing his game code.
+**Thus it is important that applying the ECS approach on an existing project should be easy and quick to do. Our goal is that within 30 minutes a user can, in a large project, change some code from MonoBehaviour.Update to ComponentSystem and have a successful experience optimizing his game code.**
 
 ## Packages
 
-We want the majority of our engine code to be written in C# and deployed in a Package. All source code is available to all Unity Pro customers.
+**We want the majority of our engine code to be written in C# and deployed in a Package. All source code is available to all Unity Pro customers.**
 
 We want a rapid feedback loop with customers, given that we can push code and get feedback on something quickly in a package without destabilizing other parts.
 
-Previously most of our engine code was written in C++, which creates a disconnect with how our customers write code and how programmers at Unity write code. Due to the Burst compiler tech & ECS, we can achieve better than C++ with C# code and as a result we can all write code exactly the same way.
+Previously most of our engine code was written in C++, which creates a disconnect with how our customers write code and how programmers at Unity write code. **Due to the Burst compiler tech & ECS, we can achieve better than C++ with C# code and as a result we can all write code exactly the same way.**
 
 ## Collaboration
 

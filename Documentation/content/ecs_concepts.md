@@ -27,7 +27,8 @@ See: [IComponentData in detail](ecs_in_detail.md#icomponentdata)
 
 
 ### Entity
-An ID which can be used for indirect component lookups for the purposes of graph traversal.
+****An ID which can be used for indirect component lookups for the purposes of graph traversal.**
+一个ID，可用于间接组件查找以进行图遍历。**
 
 e.g.
 
@@ -44,6 +45,7 @@ See: [Entity in detail](ecs_in_detail.md#entity)
 
 ### SharedComponentData
 Type of ComponentData where each unique value is only stored once. ComponentData streams are divided into subsets by each value of all SharedComponentData.
+**ComponentData流按所有SharedComponentData的每个值划分为子集。**
 
 e.g. (Mesh SharedComponentData)
 
@@ -71,11 +73,11 @@ This is a type of component data that allows a variable-sized, "stretchy"
 buffer to be associated with an entity. Behaves as a component type that
 carries an internal capacity of a certain number of elements, but can allocate
 a heap memory block if the internal capacity is exhausted.
-
+**这是一种组件数据，允许将可变大小的“弹性”缓冲区与实体相关联。 表现为具有一定数量元素的内部容量的组件类型，但如果内部容量耗尽，则可以分配堆内存**块
 See: [Dynamic Buffers](dynamic_buffers.md)
 
 ### EntityArchetype
-Specific set of ComponentData types and SharedComponentData values which define the subsets of ComponentData streams stored in the EntityManager.
+**Specific set of ComponentData types and SharedComponentData values which define the subsets of ComponentData streams stored in the EntityManager**.
 
 e.g. In the above, there are two EntityArchetypes:
 1. Position, HitPoints, Mesh = RocketShip
@@ -83,28 +85,28 @@ e.g. In the above, there are two EntityArchetypes:
 
 See: [EntityArchetype in detail](ecs_in_detail.md#entityarchetype)
 
-### ComponentSystem
-Where gameplay/system logic/behavior occurs.
+### **ComponentSystem**
+**Where gameplay/system logic/behavior occurs.**
 
 See: [ComponentSystem in detail](ecs_in_detail.md#componentsystem)
 
 ### World
-A unique EntityManager with specific instances of defined ComponentSystems. Multiple Worlds may exist and work on independent data sets.
+**A unique EntityManager with specific instances of defined ComponentSystems.** **Multiple Worlds may exist and work on independent data sets.**
 
 See: [World in detail](ecs_in_detail.md#world)
 
 ### SystemStateComponentData
-A specific type of ComponentData which is not serialized or removed by default when an Entity ID is deleted. Used for internal state and resource management inside a system. Allows you to manage construction and destruction of resources.
+**A specific type of ComponentData which is not serialized or removed by default when an Entity ID is deleted. Used for internal state and resource management inside a system**. Allows you to manage construction and destruction of resources.
 
 See: [SystemStateComponentData in detail](ecs_in_detail.md#systemstatecomponentdata)
 
 ### JobComponentSystem
-A type of ComponentSystem where jobs are queued independently of the JobComponentSystem's update, in the background. Those jobs are guaranteed to be completed in the same order as the systems. 
+A type of ComponentSystem **where jobs are queued independently of the JobComponentSystem's update, in the background. Those jobs are guaranteed to be completed in the same order as the systems. **
 
 See: [JobComponentSystem in detail](ecs_in_detail.md#jobcomponentsystem)
 
 ### EntityCommandBuffer
-A list of structural changes to the data in an EntityManager for later completion. Structural changes are:
+**A list of structural changes to the data in an EntityManager f**or later completion. Structural changes are:
 1. Adding Component
 2. Removing Component
 3. Changing SharedComponent value
@@ -112,7 +114,7 @@ A list of structural changes to the data in an EntityManager for later completio
 See: [EntityCommandBuffer in detail](ecs_in_detail.md#entitycommandbuffer)
 
 ### Barrier
-A type of ComponentSystem, which provides an EntityCommandBuffer. i.e. A specific (synchronization) point in the frame where that EntityCommandBuffer will be resolved.
+**A type of ComponentSystem, which provides an EntityCommandBuffer**. i.e. A specific (synchronization) point in the frame where that EntityCommandBuffer will be resolved.
 
 See: [Barrier in detail](ecs_in_detail.md#barrier)
 
